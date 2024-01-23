@@ -19,6 +19,10 @@ public class Contact {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String fullName;
+	private String email;
+	private String phoneNumber;
+	private String address;
+	private String gender;
 	private String role; 
 	private String description; 
 	

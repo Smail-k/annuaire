@@ -46,7 +46,7 @@ services:
     container_name: mysqldb
     image: mysql:8.2.0 # Utilisez la version spécifique de MySQL
     volumes:
-      -  /home/user/Desktop/db:/var/lib/mysqll
+      -  /home/user/Desktop/db:/var/lib/mysql
     ports: 
      - 3307:3306   
     environment:

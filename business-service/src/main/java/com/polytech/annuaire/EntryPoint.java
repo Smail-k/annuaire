@@ -21,7 +21,7 @@ public class EntryPoint {
 	@Bean
 	CommandLineRunner run(ContactRepository repo) {
 		return args->{
-			repo.save(new Contact(null, "smail", "PO", "doing something")); 
+			//repo.save(new Contact(null, "smail", "PO", "doing something")); 
 		};
 	}
 	
