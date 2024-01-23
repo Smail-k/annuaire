@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id : r1
+          uri: http://${users-ms:localhost:8081}/
+          predicates:
+            - Path=/users/**
+        - id : r2
+          uri: http://${business-ms:localhost:8082}/
+          predicates:
+            - Path=/contacts/**
+
+  application:
+    name: gateway-service
+server:
+  port: 80
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${endPoint:localhost}:8761/eureka

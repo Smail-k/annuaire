@@ -1,0 +1,11 @@
+com\polytech\annuaire\model\User.class
+com\polytech\annuaire\configuration\CorsConfig$1.class
+com\polytech\annuaire\configuration\CorsConfig.class
+com\polytech\annuaire\EntryPoint.class
+com\polytech\annuaire\filters\CustomAuthenticationFilter.class
+com\polytech\annuaire\controllers\UserController.class
+com\polytech\annuaire\services\UserServiceDefault.class
+com\polytech\annuaire\repos\UserRepository.class
+com\polytech\annuaire\services\UserService.class
+com\polytech\annuaire\configuration\SecurityConfiguration.class
+com\polytech\annuaire\filters\JwtAuthorizationFilter.class

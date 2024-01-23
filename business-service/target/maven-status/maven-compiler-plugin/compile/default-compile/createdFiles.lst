@@ -1,0 +1,10 @@
+com\polytech\annuaire\services\ContactServiceDefault.class
+com\polytech\annuaire\configuration\CorsConfig$1.class
+com\polytech\annuaire\configuration\CorsConfig.class
+com\polytech\annuaire\EntryPoint.class
+com\polytech\annuaire\models\Contact.class
+com\polytech\annuaire\services\ContactService.class
+com\polytech\annuaire\controllers\AnnuaireController.class
+com\polytech\annuaire\repos\ContactRepository.class
+com\polytech\annuaire\configuration\SecurityConfiguration.class
+com\polytech\annuaire\filters\JwtAuthorizationFilter.class

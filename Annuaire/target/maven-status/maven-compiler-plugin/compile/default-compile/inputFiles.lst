@@ -1,0 +1,10 @@
+D:\data ssd\Documents\test2\Annuaire\src\main\java\com\polytech\annuaire\services\UserServiceDefault.java
+D:\data ssd\Documents\test2\Annuaire\src\main\java\com\polytech\annuaire\configuration\CorsConfig.java
+D:\data ssd\Documents\test2\Annuaire\src\main\java\com\polytech\annuaire\configuration\SecurityConfiguration.java
+D:\data ssd\Documents\test2\Annuaire\src\main\java\com\polytech\annuaire\model\User.java
+D:\data ssd\Documents\test2\Annuaire\src\main\java\com\polytech\annuaire\repos\UserRepository.java
+D:\data ssd\Documents\test2\Annuaire\src\main\java\com\polytech\annuaire\filters\CustomAuthenticationFilter.java
+D:\data ssd\Documents\test2\Annuaire\src\main\java\com\polytech\annuaire\filters\JwtAuthorizationFilter.java
+D:\data ssd\Documents\test2\Annuaire\src\main\java\com\polytech\annuaire\EntryPoint.java
+D:\data ssd\Documents\test2\Annuaire\src\main\java\com\polytech\annuaire\controllers\UserController.java
+D:\data ssd\Documents\test2\Annuaire\src\main\java\com\polytech\annuaire\services\UserService.java

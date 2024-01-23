@@ -1,0 +1,81 @@
+version: '3'
+
+services:
+  discovery-app:
+    container_name: discovery-app
+    image: discov-app
+    build: ./discovery-service
+    ports:
+      - 8761:8761
+    healthcheck:
+          test: [ "CMD", "curl", "-f", "http://localhost:8761/actuator/health" ]
+          interval: 10s
+          retries: 4
+  auth-ms : 
+    image : users-ms
+    build : ./Annuaire
+    restart: always
+
+    ports : 
+      - 8081:8081
+    environment : 
+      MYSQL_HOST: mysqldb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_PORT: 3306
+      endPoint: discovery-app
+    depends_on :
+      discovery-app : 
+        condition: service_healthy
+  business-ms : 
+    image : business-ms
+    build : ./business-service
+    restart : always
+    ports : 
+      - 8082:8082
+    environment:
+      MYSQL_HOST: mysqldb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_PORT: 3306
+      endPoint: discovery-app
+    depends_on :
+      discovery-app : 
+        condition: service_healthy
+  mysqldb: 
+    container_name: mysqldb
+    image: mysql:8.2.0 # Utilisez la version spécifique de MySQL
+    volumes:
+      -  /home/user/Desktop/db:/var/lib/mysqll
+    ports: 
+     - 3307:3306   
+    environment:
+      MYSQL_DATABASE: auth
+      MYSQL_ROOT_PASSWORD: root
+  gateway-ms : 
+    image : gateway-ms
+    build : ./service-proxy
+    ports : 
+      - 80:80
+    environment:
+      MYSQL_HOST: mysqldb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_PORT: 3306
+      endPoint: discovery-app
+      users-ms: auth-ms:8081 
+      business-ms: business-ms:8082
+    depends_on :
+      - discovery-app
+  # waf:
+  #   image: owasp/modsecurity-crs:apache
+  #   depends_on:
+  #     - business-ms
+  #   volumes:
+  #     - ./waf:/etc/nginx/conf.d
+  #   ports:
+  #     - "8080:80"
+  #   environment:
+  #     BACKEND : http://gateway-ms
+  #     APACHE_ALWAYS_TLS_REDIRECT: "Off"
+  #     REQ_HEADER_FORWARDED_PROTO: "http"
